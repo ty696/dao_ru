@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0022)https://www.cmgc8.top/ -->
+<html lang="zh-CN"><script src="chrome-extension://dlcobpjiigpikoobohmabehhmhfoodbb/inpage.js" id="argent-x-extension" data-extension-id="dlcobpjiigpikoobohmabehhmhfoodbb"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <title>创美诚品</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -61,7 +61,7 @@
 </head>
 <body>
 
-<div id="globalLoading">
+<div id="globalLoading" style="display: none;">
     <div class="spin"></div>
     <span>加载中</span>
 </div>
@@ -77,7 +77,7 @@
         <button class="search-btn" onclick="searchProduct()">搜索</button>
     </div>
 
-    <div class="cate-list" id="cateList"></div>
+    <div class="cate-list" id="cateList"><button class="cate-btn active" onclick="switchCate(0)">全部</button><button class="cate-btn" onclick="switchCate(20)">特价专区</button><button class="cate-btn" onclick="switchCate(5)">洗护</button><button class="cate-btn" onclick="switchCate(6)">烫发</button><button class="cate-btn" onclick="switchCate(7)">染发</button><button class="cate-btn" onclick="switchCate(8)">造型</button><button class="cate-btn" onclick="switchCate(16)">电器</button><button class="cate-btn" onclick="switchCate(17)">工具</button><button class="cate-btn" onclick="switchCate(14)">家具</button><button class="cate-btn" onclick="switchCate(15)">品牌专区</button></div>
     <div class="sub-list" id="subList" style="display:none"></div>
     <div class="third-list" id="thirdList" style="display:none"></div>
 
@@ -87,20 +87,180 @@
         <button class="sort-btn" data-sort="create_time">最新 ↓↑</button>
     </div>
 
-    <div class="product-list" id="productList"></div>
-    <div class="load-tip" id="loadTip">加载中...</div>
+    <div class="product-list" id="productList">
+        <div class="product-card" onclick="openDetail(11)">
+            <div class="product-img" style="background-image:url('upload/17758132672520.png')"></div>
+            <div class="product-info">
+                <div class="p-title">氨基酸精华-滋润修护洗发乳</div>
+                <div class="p-sub">网络禁售 少女时代香型 净含量：700g</div>
+                <div class="p-price">¥38.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(9)">
+            <div class="product-img" style="background-image:url('upload/17758122399645.png')"></div>
+            <div class="product-info">
+                <div class="p-title">帝辇草本强韧健发防断洗发液</div>
+                <div class="p-sub">网络禁售 功效防脱 净含量：500ml</div>
+                <div class="p-price">¥45.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(15)">
+            <div class="product-img" style="background-image:url('upload/17758160324818.jpg')"></div>
+            <div class="product-info">
+                <div class="p-title">滇草原植萃精华去屑控油洗发水</div>
+                <div class="p-sub">网络禁售 净含量：750ml</div>
+                <div class="p-price">¥30.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(157)">
+            <div class="product-img" style="background-image:url('upload/17770397789248.jpeg')"></div>
+            <div class="product-info">
+                <div class="p-title">魅丽源溯钢盔特硬干胶</div>
+                <div class="p-sub">网络禁售 净含量：360ml</div>
+                <div class="p-price">¥5.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(88)">
+            <div class="product-img" style="background-image:url('upload/17762486194611.jpeg')"></div>
+            <div class="product-info">
+                <div class="p-title">中山茜丽染膏</div>
+                <div class="p-sub">10支送1瓶双氧奶 净含量：100ml</div>
+                <div class="p-price">¥5 ~ ¥30</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(10)">
+            <div class="product-img" style="background-image:url('upload/17758124699257.png')"></div>
+            <div class="product-info">
+                <div class="p-title">帝辇草本去屑止痒洗发液</div>
+                <div class="p-sub">网络禁售 净含量：500ml</div>
+                <div class="p-price">¥45.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(66)">
+            <div class="product-img" style="background-image:url('upload/17761722525781.jpg')"></div>
+            <div class="product-info">
+                <div class="p-title">天之鸿果酸多能快速烫</div>
+                <div class="p-sub">净含量：300mlx2</div>
+                <div class="p-price">¥25.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(89)">
+            <div class="product-img" style="background-image:url('upload/17762488272405.png')"></div>
+            <div class="product-info">
+                <div class="p-title">圣菲灵-植物染</div>
+                <div class="p-sub">10支送1袋双氧奶 净含量：90ml</div>
+                <div class="p-price">¥7 ~ ¥30</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(8)">
+            <div class="product-img" style="background-image:url('upload/17758092915132.png')"></div>
+            <div class="product-info">
+                <div class="p-title">帝辇草本去屑控油洗发精华乳</div>
+                <div class="p-sub">网络禁售 二硫化硒止痒 净含量：350ml</div>
+                <div class="p-price">¥42.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(12)">
+            <div class="product-img" style="background-image:url('upload/17758134804798.jpg')"></div>
+            <div class="product-info">
+                <div class="p-title">奢耀蛋白焕活霜-护理</div>
+                <div class="p-sub">网络禁售 少女时代香型 净含量：700g</div>
+                <div class="p-price">¥38.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(63)">
+            <div class="product-img" style="background-image:url('upload/17838476341038.jpg')"></div>
+            <div class="product-info">
+                <div class="p-title">巴芙仕质感香氛烫发液（快速烫）</div>
+                <div class="p-sub">净含量：120ml*2 PH值9.25</div>
+                <div class="p-price">¥10.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(22)">
+            <div class="product-img" style="background-image:url('upload/17759194146769.jpeg')"></div>
+            <div class="product-info">
+                <div class="p-title">（特价）赫涛植萃去屑洗发乳（买大送小）</div>
+                <div class="p-sub">净含量：320ml送20ml</div>
+                <div class="p-price">¥26.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(45)">
+            <div class="product-img" style="background-image:url('upload/17761589222444.png')"></div>
+            <div class="product-info">
+                <div class="p-title">去屑清爽洗发乳</div>
+                <div class="p-sub">香水香型 净含量：750ml</div>
+                <div class="p-price">¥38.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(164)">
+            <div class="product-img" style="background-image:url('upload/17770479338348.png')"></div>
+            <div class="product-info">
+                <div class="p-title">宇婧花香啫喱水</div>
+                <div class="p-sub">净含量215ml</div>
+                <div class="p-price">¥5.50</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(90)">
+            <div class="product-img" style="background-image:url('upload/17762491602635.png')"></div>
+            <div class="product-info">
+                <div class="p-title">金致二代染膏</div>
+                <div class="p-sub">10支送1袋双氧奶 净含量：90ml</div>
+                <div class="p-price">¥4.5 ~ ¥30</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(120)">
+            <div class="product-img" style="background-image:url('upload/17766976345608.png')"></div>
+            <div class="product-info">
+                <div class="p-title">红白蓝三色C60-21QLED-新中半圆转灯</div>
+                <div class="p-sub">尺寸:高60cm/90cm/120cm/150cm LED外灯珠 防雨防晒 </div>
+                <div class="p-price">¥135 ~ ¥215</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(225)">
+            <div class="product-img" style="background-image:url('upload/17799598877085.jpg')"></div>
+            <div class="product-info">
+                <div class="p-title">阿可美m6雕刻剪</div>
+                <div class="p-sub">天牛角刀头</div>
+                <div class="p-price">¥45 ~ ¥245</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(13)">
+            <div class="product-img" style="background-image:url('upload/17758137359822.png')"></div>
+            <div class="product-info">
+                <div class="p-title">氨基酸精华-去屑蓬松洗发水</div>
+                <div class="p-sub">网络禁售 少女时代香型 净含量：700g</div>
+                <div class="p-price">¥38.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(19)">
+            <div class="product-img" style="background-image:url('upload/17759162062953.png')"></div>
+            <div class="product-info">
+                <div class="p-title">滇草原去屑净油止痒洗发乳</div>
+                <div class="p-sub">网络禁售 二硫化硒止痒 净含量：300ml</div>
+                <div class="p-price">¥35.00</div>
+            </div>
+        </div>
+        <div class="product-card" onclick="openDetail(28)">
+            <div class="product-img" style="background-image:url('upload/17759806635991.jpg')"></div>
+            <div class="product-info">
+                <div class="p-title">(特价)COCO香氛柔顺臻护液</div>
+                <div class="p-sub">净含量300ml 免洗喷雾 含2种水解蛋白</div>
+                <div class="p-price">¥3.33</div>
+            </div>
+        </div></div>
+    <div class="load-tip" id="loadTip" style="display: none;">加载中...</div>
 </div>
 
-<div class="modal" id="modal">
+<div class="modal" id="modal" style="display: none;">
     <div class="modal-box">
         <div class="close">×</div>
-        <img id="modalMain" class="modal-main">
+        <img id="modalMain" class="modal-main" src="./创美诚品_files/17758122399645.png">
         <div class="modal-info">
-            <h2 id="modalTitle"></h2>
-            <p id="modalSub"></p>
-            <div class="model-list" id="modelList"></div>
+            <h2 id="modalTitle">帝辇草本强韧健发防断洗发液</h2>
+            <p id="modalSub">网络禁售 功效防脱 净含量：500ml</p>
+            <div class="model-list" id="modelList"><div class="model-item">批发价：<price>¥45.00</price></div></div>
             <div class="detail-title">详情图</div>
-            <div class="detail-imgs" id="detailImgs"></div>
+            <div class="detail-imgs" id="detailImgs"><img class="detail-img" src="./创美诚品_files/17758122501357.png"><img class="detail-img" src="./创美诚品_files/17758122505028.png"><img class="detail-img" src="./创美诚品_files/17758122503073.png"><img class="detail-img" src="./创美诚品_files/17758122508693.png"><img class="detail-img" src="./创美诚品_files/17758122509894.png"><img class="detail-img" src="./创美诚品_files/17758122502568.png"><img class="detail-img" src="./创美诚品_files/17758122507936.png"><img class="detail-img" src="./创美诚品_files/17758122512986.png"><img class="detail-img" src="./创美诚品_files/17758122514320.png"><img class="detail-img" src="./创美诚品_files/17758122518646.jpg"><img class="detail-img" src="./创美诚品_files/17758122518446.jpg"></div>
         </div>
     </div>
 </div>
@@ -322,6 +482,6 @@ window.onscroll = ()=>{
 loadCate();
 loadProduct();
 </script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"9e96a4a935584a89839e016b8a45810c","r":1,"spa":2}' crossorigin="anonymous"></script>
-</body>
-</html>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;9e96a4a935584a89839e016b8a45810c&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
+
+</body></html>
