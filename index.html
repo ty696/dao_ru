@@ -1,487 +1,322 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)https://www.cmgc8.top/ -->
-<html lang="zh-CN"><script src="chrome-extension://dlcobpjiigpikoobohmabehhmhfoodbb/inpage.js" id="argent-x-extension" data-extension-id="dlcobpjiigpikoobohmabehhmhfoodbb"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>君子兰美业</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",微软雅黑,system-ui,-apple-system}
-        body{background:#f7f8fa;color:#333}
-        
-        #globalLoading {
-            position: fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.85);
-            display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:9999;
-        }
-        .spin {
-            width:36px;height:36px;border:3px solid #eee;border-top:3px solid #165DFF;border-radius:50%;
-            animation:spin 1s linear infinite;margin-bottom:10px;
-        }
-        @keyframes spin {from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-        #globalLoading span{font-size:15px;color:#666}
-        
-        .header{background:#165DFF;color:#fff;padding:20px;text-align:center;font-size:22px;font-weight:bold;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
-        .container{max-width:768px;margin:0 auto;padding:15px}
-        
-        .search-box{display:flex;gap:8px;margin-bottom:15px}
-        .search{flex:1;padding:14px 16px;border:1px solid #e5e6eb;border-radius:12px;font-size:15px;outline:none}
-        .search-btn{padding:0 20px;background:#165DFF;color:#fff;border:none;border-radius:12px;font-size:15px;cursor:pointer}
-        .search:focus{border-color:#165DFF}
-        
-        .cate-list,.sub-list,.third-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-        .cate-btn,.sub-btn,.third-btn{padding:9px 14px;background:#fff;border:1px solid #eee;border-radius:20px;font-size:14px;white-space:nowrap}
-        .cate-btn.active,.sub-btn.active,.third-btn.active{background:#165DFF;color:#fff;border-color:#165DFF}
-        
-        .sort-bar{display:flex;gap:10px;margin-bottom:20px}
-        .sort-btn{flex:1;padding:11px;background:#fff;border:1px solid #eee;border-radius:10px;font-size:14px}
-        .sort-btn.active{background:#165DFF;color:#fff;border-color:#165DFF}
-        
-        .product-list{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-        .product-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);cursor:pointer}
-        .product-img{width:100%;padding-bottom:100%;background-size:cover;background-position:center;background-color:#f5f5f5}
-        .product-info{padding:12px}
-        .p-title{font-size:15px;font-weight:600;color:#222;margin-bottom:6px;line-height:1.3}
-        .p-sub{font-size:12px;font-weight:500;color:#777;margin-bottom:8px;line-height:1.3}
-        .p-price{font-size:16px;color:#165DFF;font-weight:bold}
-        
-        .load-tip{text-align:center;padding:15px;color:#999;font-size:14px;display:none}
-        
-        .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:999}
-        .modal-box{width:80vw;height:80vh;background:#fff;border-radius:20px;overflow:auto;position:relative;padding:20px}
-        .modal-box img{width:100%!important;max-width:100%!important;height:auto!important;display:block!important}
-        .close{position:fixed;right:20px;top:20px;width:44px;height:44px;background:rgba(0,0,0,0.5);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer}
-        .modal-main{width:100%!important;max-width:100%!important;height:auto!important;display:block!important;box-sizing:border-box!important;margin-bottom:20px}
-        #modalTitle{font-size:18px;font-weight:700;color:#000;margin-bottom:12px}
-        #modalSub{font-size:14px;font-weight:500;color:#666;margin-bottom:12px}
-        .model-list{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:25px;width:100%}
-        .model-item{font-size:16px;font-weight:600;color:#222;white-space:nowrap}
-        .model-item price{color:red;font-weight:bold;margin-left:4px}
-        .detail-title{text-align:center;font-size:22px;font-weight:bold;margin:30px 0}
-        .detail-img{width:100%!important;max-width:100%!important;height:auto!important;border-radius:12px;display:block!important;box-sizing:border-box!important;margin-bottom:10px}
-    </style>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>君子兰美容美发用品批发</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",微软雅黑,system-ui,-apple-system}
+body{background:#f7f8fa;color:#333}
+
+.header{background:#165DFF;color:#fff;padding:18px 20px;position:relative;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.header .title{font-size:19px;font-weight:bold;text-align:center}
+.header .sub{font-size:13px;text-align:center;margin-top:4px;opacity:0.9}
+.header .phone{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:#fff;color:#165DFF;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:bold;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.15);white-space:nowrap}
+.header .phone:active{opacity:0.8}
+
+.container{max-width:768px;margin:0 auto;padding:15px}
+
+.banner{background:#fff8e1;color:#8a6d00;padding:10px 14px;border-radius:10px;font-size:12px;line-height:1.6;text-align:center;margin-bottom:12px;border:1px solid #ffe7a0}
+
+.search-box{display:flex;gap:8px;margin-bottom:15px}
+.search{flex:1;padding:14px 16px;border:1px solid #e5e6eb;border-radius:12px;font-size:15px;outline:none;background:#fff}
+.search:focus{border-color:#165DFF}
+
+.cate-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+.cate-btn{padding:9px 15px;background:#fff;border:1px solid #eee;border-radius:20px;font-size:14px;white-space:nowrap;cursor:pointer;transition:0.15s}
+.cate-btn.active{background:#165DFF;color:#fff;border-color:#165DFF}
+
+.brand-title{font-size:15px;font-weight:bold;color:#165DFF;margin:22px 0 12px;padding-left:10px;border-left:3px solid #165DFF;letter-spacing:1px}
+.brand-title:first-child{margin-top:0}
+
+.product-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(min-width:640px){.product-list{grid-template-columns:1fr 1fr 1fr}}
+.product-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);cursor:pointer;transition:0.15s}
+.product-card:active{transform:scale(0.98)}
+.product-img{width:100%;padding-bottom:100%;position:relative;background:#f5f5f5;overflow:hidden}
+.product-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#c8cdd6;font-size:12px}
+.product-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.product-info{padding:11px 12px 13px}
+.p-title{font-size:14px;font-weight:600;color:#222;margin-bottom:5px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.p-sub{font-size:12px;color:#777;margin-bottom:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.p-price{font-size:15px;color:#165DFF;font-weight:bold}
+
+.empty{text-align:center;padding:50px 20px;color:#a0a8b8;font-size:15px;grid-column:1/-1}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:999;padding:16px}
+.modal.show{display:flex}
+.modal-box{width:100%;max-width:520px;max-height:85vh;background:#fff;border-radius:20px;overflow:auto;position:relative;padding:20px}
+.close{position:absolute;right:14px;top:14px;width:38px;height:38px;background:#f0f2f5;color:#555;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;border:none;z-index:2}
+.close:active{background:#e0e4eb}
+.modal-main{width:100%;aspect-ratio:1;background:#f5f7fa;border-radius:12px;overflow:hidden;margin-bottom:16px;display:flex;align-items:center;justify-content:center;color:#c8cdd6;font-size:13px}
+.modal-main img{width:100%;height:100%;object-fit:cover}
+.modal-title{font-size:18px;font-weight:bold;color:#111;margin-bottom:10px;line-height:1.4}
+.modal-sub{font-size:14px;color:#666;line-height:1.6;margin-bottom:14px}
+.modal-price{font-size:22px;color:#165DFF;font-weight:bold;margin-bottom:16px}
+.modal-price small{font-size:13px;color:#8a94a6;font-weight:normal;margin-left:6px}
+
+.contact-box{background:#f0f6ff;border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.9;color:#333}
+.contact-box b{color:#165DFF}
+
+.footer{max-width:768px;margin:40px auto 20px;padding:20px 18px;border-top:1px dashed #ccc;text-align:center;font-size:12px;color:#888;line-height:1.8}
+.footer b{color:#165DFF}
+</style>
 </head>
 <body>
 
-<div id="globalLoading" style="display: none;">
-    <div class="spin"></div>
-    <span>加载中</span>
-</div>
-
 <div class="header">
-    <div style="font-size:22px">君子兰美发用品批发</div>
-    <div style="font-size:14px;margin-top:6px">私人订制,禁止网络销售</div>
+  <div class="title">君子兰美容美发用品批发</div>
+  <div class="sub">专业沙龙私人定制 · 实体门店专供</div>
+  <a class="phone" id="phoneBtn" href="tel:">📞 <span id="phoneText">—</span></a>
 </div>
 
 <div class="container">
-    <div class="search-box">
-        <input type="text" id="search" class="search" placeholder="🔍 搜索产品">
-        <button class="search-btn" onclick="searchProduct()">搜索</button>
-    </div>
 
-    <div class="cate-list" id="cateList"><button class="cate-btn active" onclick="switchCate(0)">全部</button><button class="cate-btn" onclick="switchCate(20)">特价专区</button><button class="cate-btn" onclick="switchCate(5)">洗护</button><button class="cate-btn" onclick="switchCate(6)">烫发</button><button class="cate-btn" onclick="switchCate(7)">染发</button><button class="cate-btn" onclick="switchCate(8)">造型</button><button class="cate-btn" onclick="switchCate(16)">电器</button><button class="cate-btn" onclick="switchCate(17)">工具</button><button class="cate-btn" onclick="switchCate(14)">家具</button><button class="cate-btn" onclick="switchCate(15)">品牌专区</button></div>
-    <div class="sub-list" id="subList" style="display:none"></div>
-    <div class="third-list" id="thirdList" style="display:none"></div>
+  <div class="banner">
+    全线产品禁止网络零售 · 禁止电商售卖 · 禁止线上倒卖
+  </div>
 
-    <div class="sort-bar">
-        <button class="sort-btn active" data-sort="view_num">人气 ↓↑</button>
-        <button class="sort-btn" data-sort="price">价格 ↓↑</button>
-        <button class="sort-btn" data-sort="create_time">最新 ↓↑</button>
-    </div>
+  <div class="search-box">
+    <input type="text" id="search" class="search" placeholder="🔍 搜索产品名称">
+  </div>
 
-    <div class="product-list" id="productList">
-        <div class="product-card" onclick="openDetail(11)">
-            <div class="product-img" style="background-image:url('upload/17758132672520.png')"></div>
-            <div class="product-info">
-                <div class="p-title">氨基酸精华-滋润修护洗发乳</div>
-                <div class="p-sub">网络禁售 少女时代香型 净含量：700g</div>
-                <div class="p-price">¥68.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(9)">
-            <div class="product-img" style="background-image:url('upload/17758122399645.png')"></div>
-            <div class="product-info">
-                <div class="p-title">帝辇草本强韧健发防断洗发液</div>
-                <div class="p-sub">网络禁售 功效防脱 净含量：500ml</div>
-                <div class="p-price">¥65.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(15)">
-            <div class="product-img" style="background-image:url('upload/17758160324818.jpg')"></div>
-            <div class="product-info">
-                <div class="p-title">滇草原植萃精华去屑控油洗发水</div>
-                <div class="p-sub">网络禁售 净含量：750ml</div>
-                <div class="p-price">¥50.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(157)">
-            <div class="product-img" style="background-image:url('upload/17770397789248.jpeg')"></div>
-            <div class="product-info">
-                <div class="p-title">魅丽源溯钢盔特硬干胶</div>
-                <div class="p-sub">网络禁售 净含量：360ml</div>
-                <div class="p-price">¥15.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(88)">
-            <div class="product-img" style="background-image:url('upload/17762486194611.jpeg')"></div>
-            <div class="product-info">
-                <div class="p-title">中山茜丽染膏</div>
-                <div class="p-sub">10支送1瓶双氧奶 净含量：100ml</div>
-                <div class="p-price">¥5 ~ ¥30</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(10)">
-            <div class="product-img" style="background-image:url('upload/17758124699257.png')"></div>
-            <div class="product-info">
-                <div class="p-title">帝辇草本去屑止痒洗发液</div>
-                <div class="p-sub">网络禁售 净含量：500ml</div>
-                <div class="p-price">¥55.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(66)">
-            <div class="product-img" style="background-image:url('upload/17761722525781.jpg')"></div>
-            <div class="product-info">
-                <div class="p-title">天之鸿果酸多能快速烫</div>
-                <div class="p-sub">净含量：300mlx2</div>
-                <div class="p-price">¥25.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(89)">
-            <div class="product-img" style="background-image:url('upload/17762488272405.png')"></div>
-            <div class="product-info">
-                <div class="p-title">圣菲灵-植物染</div>
-                <div class="p-sub">10支送1袋双氧奶 净含量：90ml</div>
-                <div class="p-price">¥7 ~ ¥30</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(8)">
-            <div class="product-img" style="background-image:url('upload/17758092915132.png')"></div>
-            <div class="product-info">
-                <div class="p-title">帝辇草本去屑控油洗发精华乳</div>
-                <div class="p-sub">网络禁售 二硫化硒止痒 净含量：350ml</div>
-                <div class="p-price">¥45.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(12)">
-            <div class="product-img" style="background-image:url('upload/17758134804798.jpg')"></div>
-            <div class="product-info">
-                <div class="p-title">奢耀蛋白焕活霜-护理</div>
-                <div class="p-sub">网络禁售 少女时代香型 净含量：700g</div>
-                <div class="p-price">¥68.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(63)">
-            <div class="product-img" style="background-image:url('upload/17838476341038.jpg')"></div>
-            <div class="product-info">
-                <div class="p-title">巴芙仕质感香氛烫发液（快速烫）</div>
-                <div class="p-sub">净含量：120ml*2 PH值9.25</div>
-                <div class="p-price">¥10.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(22)">
-            <div class="product-img" style="background-image:url('upload/17759194146769.jpeg')"></div>
-            <div class="product-info">
-                <div class="p-title">（特价）赫涛植萃去屑洗发乳（买大送小）</div>
-                <div class="p-sub">净含量：320ml送20ml</div>
-                <div class="p-price">¥26.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(45)">
-            <div class="product-img" style="background-image:url('upload/17761589222444.png')"></div>
-            <div class="product-info">
-                <div class="p-title">去屑清爽洗发乳</div>
-                <div class="p-sub">香水香型 净含量：750ml</div>
-                <div class="p-price">¥38.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(164)">
-            <div class="product-img" style="background-image:url('upload/17770479338348.png')"></div>
-            <div class="product-info">
-                <div class="p-title">宇婧花香啫喱水</div>
-                <div class="p-sub">净含量215ml</div>
-                <div class="p-price">¥5.50</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(90)">
-            <div class="product-img" style="background-image:url('upload/17762491602635.png')"></div>
-            <div class="product-info">
-                <div class="p-title">金致二代染膏</div>
-                <div class="p-sub">10支送1袋双氧奶 净含量：90ml</div>
-                <div class="p-price">¥4.5 ~ ¥30</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(120)">
-            <div class="product-img" style="background-image:url('upload/17766976345608.png')"></div>
-            <div class="product-info">
-                <div class="p-title">红白蓝三色C60-21QLED-新中半圆转灯</div>
-                <div class="p-sub">尺寸:高60cm/90cm/120cm/150cm LED外灯珠 防雨防晒 </div>
-                <div class="p-price">¥135 ~ ¥215</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(225)">
-            <div class="product-img" style="background-image:url('upload/17799598877085.jpg')"></div>
-            <div class="product-info">
-                <div class="p-title">阿可美m6雕刻剪</div>
-                <div class="p-sub">天牛角刀头</div>
-                <div class="p-price">¥45 ~ ¥245</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(13)">
-            <div class="product-img" style="background-image:url('upload/17758137359822.png')"></div>
-            <div class="product-info">
-                <div class="p-title">氨基酸精华-去屑蓬松洗发水</div>
-                <div class="p-sub">网络禁售 少女时代香型 净含量：700g</div>
-                <div class="p-price">¥68.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(19)">
-            <div class="product-img" style="background-image:url('upload/17759162062953.png')"></div>
-            <div class="product-info">
-                <div class="p-title">滇草原去屑净油止痒洗发乳</div>
-                <div class="p-sub">网络禁售 二硫化硒止痒 净含量：300ml</div>
-                <div class="p-price">¥60.00</div>
-            </div>
-        </div>
-        <div class="product-card" onclick="openDetail(28)">
-            <div class="product-img" style="background-image:url('upload/17759806635991.jpg')"></div>
-            <div class="product-info">
-                <div class="p-title">(特价)COCO香氛柔顺臻护液</div>
-                <div class="p-sub">净含量300ml 免洗喷雾 含2种水解蛋白</div>
-                <div class="p-price">¥3.33</div>
-            </div>
-        </div></div>
-    <div class="load-tip" id="loadTip" style="display: none;">加载中...</div>
+  <div class="cate-list" id="cateList"></div>
+
+  <div id="content"></div>
+
 </div>
 
-<div class="modal" id="modal" style="display: none;">
-    <div class="modal-box">
-        <div class="close">×</div>
-        <img id="modalMain" class="modal-main" src="./创美诚品_files/17758122399645.png">
-        <div class="modal-info">
-            <h2 id="modalTitle">帝辇草本强韧健发防断洗发液</h2>
-            <p id="modalSub">网络禁售 功效防脱 净含量：500ml</p>
-            <div class="model-list" id="modelList"><div class="model-item">批发价：<price>¥60.00</price></div></div>
-            <div class="detail-title">详情图</div>
-            <div class="detail-imgs" id="detailImgs"><img class="detail-img" src="./创美诚品_files/17758122501357.png"><img class="detail-img" src="./创美诚品_files/17758122505028.png"><img class="detail-img" src="./创美诚品_files/17758122503073.png"><img class="detail-img" src="./创美诚品_files/17758122508693.png"><img class="detail-img" src="./创美诚品_files/17758122509894.png"><img class="detail-img" src="./创美诚品_files/17758122502568.png"><img class="detail-img" src="./创美诚品_files/17758122507936.png"><img class="detail-img" src="./创美诚品_files/17758122512986.png"><img class="detail-img" src="./创美诚品_files/17758122514320.png"><img class="detail-img" src="./创美诚品_files/17758122518646.jpg"><img class="detail-img" src="./创美诚品_files/17758122518446.jpg"></div>
-        </div>
+<div class="footer">
+  本店铺隶属于【<b>曲靖市麒麟区君子兰美容美发用品销售部</b>】<br>
+  所有产品均为线下美容美发沙龙实体店专供批发。<br>
+  全线产品严禁网络上架、电商销售、私域倒卖、线上零售，违者追究侵权责任。
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="modal-main" id="modalMain">暂无图片</div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-sub" id="modalSub"></div>
+    <div class="modal-price" id="modalPrice"></div>
+    <div class="contact-box">
+      <b>📞 订购方式</b><br>
+      实体门店专供批发 · 请拨打上方电话或到店咨询
     </div>
+  </div>
 </div>
 
 <script>
-let cateId = 0, subId = 0, thirdId = 0;
-let keyword = '';
-let sortType = 'view_num';
-let order = 'desc';
-let page = 1, limit = 5;
-let noMore = false, loading = false;
+/* ==========================================================
+   电话号码（改成你自己的）
+   ========================================================== */
+const PHONE = "138-0000-0000";
+document.getElementById('phoneText').textContent = PHONE;
+document.getElementById('phoneBtn').href = 'tel:' + PHONE.replace(/[^0-9+]/g, '');
 
-let productList = [];
+/* ==========================================================
+   大分类
+   ========================================================== */
+const CATEGORIES = ["全部","帝辇","滇草源","洗护","护肤","染发","烫发","造型","工具","大容量"];
 
-function closeGlobalLoading() {
-    let g = document.getElementById('globalLoading');
-    if (g) g.style.display = 'none';
-}
+/* ==========================================================
+   商品数据
+   ========================================================== */
+const PRODUCTS = [
+  /* 帝辇（主推） */
+  {name:"帝辇氨基酸精华滋润修护洗发水", sub:"700g ｜ 氨基酸基底，修护干枯毛躁", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇氨基酸去屑蓬松洗发水", sub:"700g ｜ 温和去屑，发根持久蓬松", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇蛋白焕活霜", sub:"700ml ｜ 沙龙蛋白护理，柔顺锁水", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇抑菌膏", sub:"30g ｜ 头皮舒缓护理", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇中药防断健发洗发液", sub:"500g ｜ 减少断发，强韧发根", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇草本去屑止痒洗发液", sub:"500g ｜ 草本舒缓，改善头痒头屑", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇草本去屑控油洗发精华乳", sub:"350ml ｜ 含二硫化硒，强效控油去屑", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇灵润飘逸护发精油", sub:"60ml ｜ 免洗配方，抚平毛躁", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇氨基酸隐形发膜（弹力素）", sub:"300ml ｜ 卷发保湿，隐形质感不厚重", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇水润护卷弹力素", sub:"300ml ｜ 持久护卷，造型不僵硬", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇保湿定型啫喱膏", sub:"300ml ｜ 保湿定型，干爽不发白", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇香氛蓬松洗发乳", sub:"4.2L ｜ 发廊大桶装，香氛蓬松", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇香氛柔滑护发素", sub:"4.2L ｜ 发廊大桶护发，顺滑易梳", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇绿点黑油", sub:"发廊专业染黑", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇皂基奢舒沐浴乳", sub:"香氛沐浴，清洁清爽", brand:"帝辇", cate:"帝辇"},
+  {name:"帝辇绿瓶香氛沐浴露", sub:"", brand:"帝辇", cate:"帝辇"},
 
-function searchProduct() {
-    keyword = document.getElementById('search').value.trim();
-    resetPage();
-    loadProduct();
-}
+  /* 滇草源（第二主推） */
+  {name:"滇草源植萃精华柔顺修护洗发乳", sub:"750ml ｜ 植萃配方，修护烫染受损", brand:"滇草源", cate:"滇草源"},
+  {name:"滇草源植萃精华去屑控油洗发水", sub:"750ml ｜ 植萃净屑，平衡头皮油脂", brand:"滇草源", cate:"滇草源"},
+  {name:"滇草源植萃焕活果酸修复霜", sub:"700ml ｜ 果酸修护，改善干枯稻草发", brand:"滇草源", cate:"滇草源"},
+  {name:"滇草源去屑净油止痒洗发乳", sub:"300ml ｜ 含二硫化硒，针对顽固头屑头痒", brand:"滇草源", cate:"滇草源"},
+  {name:"滇草源植萃蛋白柔顺霜（发膜）", sub:"650ml ｜ 深层蛋白滋养，柔顺亮泽", brand:"滇草源", cate:"滇草源"},
+  {name:"滇草源植萃香氛护发精油（经典款）", sub:"60ml ｜ 免洗护发，留香持久", brand:"滇草源", cate:"滇草源"},
+  {name:"滇草源植萃香氛护发精油（黄包装款）", sub:"60ml ｜ 轻薄不油，修护分叉", brand:"滇草源", cate:"滇草源"},
 
-function loadCate() {
-    fetch('api.php?act=cate')
-    .then(res=>res.json())
-    .then(data=>{
-        let html = `<button class="cate-btn active" onclick="switchCate(0)">全部</button>`;
-        data.forEach(item=>{
-            html+=`<button class="cate-btn" onclick="switchCate(${item.id})">${item.name}</button>`;
-        });
-        document.getElementById('cateList').innerHTML = html;
-        closeGlobalLoading();
-    });
-}
+  /* 洗护 */
+  {name:"忠哗会净澈去屑控油洗发乳", sub:"720g ｜ 净澈头皮，长效控油去屑", brand:"忠哗会", cate:"洗护"},
+  {name:"忠哗会焕活润养修护洗发乳", sub:"720g ｜ 润养修护，改善烫染损伤", brand:"忠哗会", cate:"洗护"},
+  {name:"忠哗会奢润柔顺果酸角蛋白1号", sub:"720g ｜ 角蛋白填充，抚平毛躁", brand:"忠哗会", cate:"洗护"},
+  {name:"魅丽源溯去屑控油洗发乳", sub:"700g ｜ 清爽控油，祛除头屑", brand:"魅丽源溯", cate:"洗护"},
+  {name:"魅丽源溯柔滑修护洗发乳", sub:"700g ｜ 修护干枯，发丝顺滑", brand:"魅丽源溯", cate:"洗护"},
+  {name:"魅丽源溯鱼子酱蛋白复活霜", sub:"鱼子酱营养，急救受损发质", brand:"魅丽源溯", cate:"洗护"},
+  {name:"魅丽源溯特硬干胶", sub:"360ml ｜ 强力定型，持久蓬松", brand:"魅丽源溯", cate:"洗护"},
+  {name:"魅丽源溯轻漾鱼感泡沫发蜡", sub:"380ml ｜ 弹力塑卷，轻盈不厚重", brand:"魅丽源溯", cate:"洗护"},
+  {name:"金曼丽发芯小分子蛋白乳", sub:"小分子蛋白，渗透发芯修护", brand:"金曼丽", cate:"洗护"},
+  {name:"金曼丽植萃去屑洗发乳", sub:"720g ｜ 植萃温和，舒缓去屑", brand:"金曼丽", cate:"洗护"},
+  {name:"欣洋娜水润修护洗发水", sub:"700ml ｜ 水润滋养，改善干枯毛躁", brand:"欣洋娜", cate:"洗护"},
+  {name:"欣洋娜控油蓬松洗发水", sub:"清爽控油，发根立体蓬松", brand:"欣洋娜", cate:"洗护"},
+  {name:"欣洋娜奢润蛋白护理", sub:"700ml ｜ 蛋白深层护理，提升发丝光泽", brand:"欣洋娜", cate:"洗护"},
+  {name:"妍美汐蓬松润泽酸性洗发水", sub:"700ml ｜ 酸性配方，闭合毛鳞片，蓬松顺滑", brand:"妍美汐", cate:"洗护"},
+  {name:"裕萱水光丝滑精华霜", sub:"750g ｜ 水光质感，发丝丝滑", brand:"裕萱", cate:"洗护"},
+  {name:"裕萱水润丝质顺滑洗发露", sub:"750g ｜ 长效顺滑，易梳理", brand:"裕萱", cate:"洗护"},
+  {name:"裕萱无味黑油", sub:"无味黑油，发廊专用", brand:"裕萱", cate:"洗护"},
+  {name:"迪洛斯去屑精华乳", sub:"300ml ｜ 头皮去屑精华，改善顽固头屑", brand:"迪洛斯", cate:"洗护"},
+  {name:"迪洛斯去屑精华乳", sub:"130ml ｜ 便携小瓶装，头皮护理", brand:"迪洛斯", cate:"洗护"},
+  {name:"荣威控油防脱洗发露", sub:"450ml ｜ 控油，稳固发根", brand:"其他", cate:"洗护"},
+  {name:"澳尚免洗液态护理精华乳（修复液）", sub:"260ml ｜ 免洗修护，抚平毛躁", brand:"其他", cate:"洗护"},
+  {name:"罗威丝发感喷雾精华素", sub:"220ml ｜ 喷雾型护发，即时顺滑", brand:"其他", cate:"洗护"},
+  {name:"发炫多效去屑洗发乳", sub:"500g ｜ 多效去屑，清爽头皮", brand:"其他", cate:"洗护"},
 
-function switchCate(id) {
-    cateId = id;
-    subId = 0;
-    thirdId = 0;
-    keyword = '';
-    document.getElementById('search').value = '';
-    document.querySelectorAll('.cate-btn').forEach(b=>b.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('subList').style.display = 'none';
-    document.getElementById('thirdList').style.display = 'none';
-    resetPage();
-    loadProduct();
+  /* 护肤 */
+  {name:"新靓琪致妍保湿玫瑰露", sub:"120ml × 2", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪多肽倍润眼霜", sub:"20g", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪致妍赋采精华乳", sub:"100ml", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪水漾清润柔肤水", sub:"120ml", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪水漾清润补水霜", sub:"50g", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪水漾清润锁水乳", sub:"100ml", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪水漾补水洁面霜", sub:"120g", brand:"新靓琪", cate:"护肤"},
+  {name:"新靓琪臻颜净透洁面泡沫", sub:"120ml", brand:"新靓琪", cate:"护肤"},
 
-    if(id != 0) {
-        fetch(`api.php?act=subCate&cid=${id}`)
-        .then(res=>res.json())
-        .then(data=>{
-            let html = `<button class="sub-btn active" onclick="switchSub(${id},0)">全部</button>`;
-            data.forEach(item=>{
-                html+=`<button class="sub-btn" onclick="switchSub(${id},${item.id})">${item.name}</button>`;
-            });
-            document.getElementById('subList').innerHTML = html;
-            document.getElementById('subList').style.display = 'flex';
-        });
-    }
-}
+  /* 染发 */
+  {name:"恩必思色膏", sub:"", brand:"色膏系列", cate:"染发"},
+  {name:"领秀色膏", sub:"", brand:"色膏系列", cate:"染发"},
+  {name:"美雅色膏", sub:"", brand:"色膏系列", cate:"染发"},
+  {name:"凡高黑油", sub:"", brand:"黑油系列", cate:"染发"},
+  {name:"立典黑油", sub:"", brand:"黑油系列", cate:"染发"},
+  {name:"HG黑油", sub:"", brand:"黑油系列", cate:"染发"},
+  {name:"朵妍琦黑油", sub:"", brand:"黑油系列", cate:"染发"},
+  {name:"佳桐黑油", sub:"", brand:"黑油系列", cate:"染发"},
+  {name:"孜然炫彩黑油", sub:"", brand:"黑油系列", cate:"染发"},
 
-function switchSub(cid, sid) {
-    cateId = cid;
-    subId = sid;
-    thirdId = 0;
-    keyword = '';
-    document.getElementById('search').value = '';
-    document.querySelectorAll('.sub-btn').forEach(b=>b.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById('thirdList').style.display = 'none';
-    resetPage();
-    loadProduct();
+  /* 烫发 */
+  {name:"章华百草韵味冷烫液（正常发质）", sub:"120ml × 2", brand:"章华", cate:"烫发"},
+  {name:"章华百草韵味冷烫液（受损发质）", sub:"120ml × 2", brand:"章华", cate:"烫发"},
+  {name:"章华百草韵味曲直烫发霜", sub:"550ml × 2", brand:"章华", cate:"烫发"},
+  {name:"章华百草韵味素卷烫发乳", sub:"550ml × 2", brand:"章华", cate:"烫发"},
+  {name:"两方面曲直香氛烫发乳（卷发专用）", sub:"900ml × 2", brand:"两方面", cate:"烫发"},
+  {name:"两方面曲直香氛烫发乳（直发专用）", sub:"900ml × 2", brand:"两方面", cate:"烫发"},
+  {name:"两方面美感弹力烫发液（高技）", sub:"120ml × 2", brand:"两方面", cate:"烫发"},
+  {name:"两方面美感弹力烫发液（水剂）", sub:"120ml × 2", brand:"两方面", cate:"烫发"},
+  {name:"两方面美感潮流冷烫液", sub:"120ml × 2", brand:"两方面", cate:"烫发"},
 
-    if(sid != 0) {
-        fetch(`api.php?act=thirdCate&sid=${sid}`)
-        .then(res=>res.json())
-        .then(data=>{
-            let html = `<button class="third-btn active" onclick="switchThird(${cid},${sid},0)">全部</button>`;
-            data.forEach(item=>{
-                html+=`<button class="third-btn" onclick="switchThird(${cid},${sid},${item.id})">${item.name}</button>`;
-            });
-            document.getElementById('thirdList').innerHTML = html;
-            document.getElementById('thirdList').style.display = 'flex';
-        });
-    }
-}
+  /* 造型 */
+  {name:"水慕柔劲酷特硬喷雾干胶", sub:"450ml ｜ 强力定型，持久造型", brand:"水慕柔", cate:"造型"},
+  {name:"水慕柔精油造型乳", sub:"300ml ｜ 造型护发二合一", brand:"水慕柔", cate:"造型"},
 
-function switchThird(cid, sid, tid) {
-    cateId = cid;
-    subId = sid;
-    thirdId = tid;
-    keyword = '';
-    document.getElementById('search').value = '';
-    document.querySelectorAll('.third-btn').forEach(b=>b.classList.remove('active'));
-    event.target.classList.add('active');
-    resetPage();
-    loadProduct();
-}
+  /* 工具 */
+  {name:"丽维尔专业油头理发器（油推）", sub:"", brand:"美发电器", cate:"工具"},
+  {name:"圣爵士锂电池电推剪", sub:"", brand:"美发电器", cate:"工具"},
+  {name:"无刷高速电吹风（戴森款）", sub:"", brand:"美发电器", cate:"工具"},
 
-function resetPage() {
-    page = 1;
-    noMore = false;
-    productList = [];
-    document.getElementById('productList').innerHTML = '';
-    document.getElementById('loadTip').style.display = 'none';
-}
+  /* 大容量 */
+  {name:"护手宝舒柔型洗发水", sub:"4L", brand:"大容量洗护", cate:"大容量"},
+  {name:"奢香稻草发护理1号护发发膜", sub:"1L", brand:"大容量洗护", cate:"大容量"},
+  {name:"奢香水润柔顺洗发露", sub:"1L", brand:"大容量洗护", cate:"大容量"},
+  {name:"奢香去屑爽洁洗发露", sub:"1L", brand:"大容量洗护", cate:"大容量"},
+  {name:"圆块烫发液", sub:"1L × 2", brand:"大容量洗护", cate:"大容量"},
+  {name:"潮范立体塑形发蜡", sub:"100ml", brand:"大容量洗护", cate:"大容量"},
+  {name:"潮范立体塑形发泥", sub:"100ml", brand:"大容量洗护", cate:"大容量"}
+];
 
-function render() {
-    let html = '';
-    productList.forEach(p=>{
-        let priceText = p.min_price == p.max_price
-            ? `¥${p.min_price}`
-            : `¥${p.min_price} ~ ¥${p.max_price}`;
+/* ==========================================================
+   渲染
+   ========================================================== */
+let currentCate = "全部";
+let currentKeyword = "";
 
-        html += `
-        <div class="product-card" onclick="openDetail(${p.id})">
-            <div class="product-img" style="background-image:url('${p.main}')"></div>
-            <div class="product-info">
-                <div class="p-title">${p.title}</div>
-                <div class="p-sub">${p.sub_title}</div>
-                <div class="p-price">${priceText}</div>
-            </div>
-        </div>`;
-    });
-    document.getElementById('productList').innerHTML = html;
-}
+const $ = id => document.getElementById(id);
 
-function loadProduct() {
-    if (loading || noMore) return;
-    loading = true;
-    document.getElementById('loadTip').style.display = 'block';
-
-    let url = `api.php?act=product&page=${page}&limit=${limit}`
-        + `&cate=${cateId}&sub=${subId}&third=${thirdId}`
-        + `&kw=${encodeURIComponent(keyword)}`
-        + `&sort=${sortType}&order=${order}`;
-
-    fetch(url)
-    .then(res=>res.json())
-    .then(data=>{
-        loading = false;
-        document.getElementById('loadTip').style.display = 'none';
-
-        if (!data || data.length === 0) {
-            noMore = true;
-            closeGlobalLoading();
-            return;
-        }
-
-        productList = productList.concat(data);
-        render();
-        page++;
-        closeGlobalLoading();
-    });
-}
-
-function openDetail(id) {
-    document.getElementById('modal').style.display = 'flex';
-    fetch(`api.php?act=detail&id=${id}`)
-    .then(res=>res.json())
-    .then(p=>{
-        document.getElementById('modalMain').src = p.main;
-        document.getElementById('modalTitle').innerText = p.title;
-        document.getElementById('modalSub').innerText = p.sub_title;
-
-        let modelHtml = '';
-        if(p.models && p.models.length) {
-            p.models.forEach(m=>{
-                modelHtml+=`<div class="model-item">${m.name}：<price>¥${m.price}</price></div>`;
-            });
-        } else {
-            modelHtml = `<div class="model-item">批发价：<price>¥${p.price}</price></div>`;
-        }
-        document.getElementById('modelList').innerHTML = modelHtml;
-
-        let imgs = '';
-        if(p.detail && p.detail.length){
-            p.detail.forEach(u=>{
-                imgs+=`<img class="detail-img" src="${u}">`;
-            });
-        }
-        document.getElementById('detailImgs').innerHTML = imgs;
-    });
-}
-
-document.querySelector('.close').onclick = ()=>{
-    document.getElementById('modal').style.display = 'none';
-};
-
-document.querySelectorAll('.sort-btn').forEach(btn=>{
-    btn.onclick = (e)=>{
-        e.preventDefault();
-        let newSort = btn.dataset.sort;
-        if (sortType === newSort) {
-            order = order === 'asc' ? 'desc' : 'asc';
-        } else {
-            sortType = newSort;
-            order = (newSort === 'create_time') ? 'desc' : 'asc';
-        }
-        document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        resetPage();
-        loadProduct();
+function renderCate(){
+  $('cateList').innerHTML = CATEGORIES.map(c =>
+    `<button class="cate-btn ${c === currentCate ? 'active' : ''}" data-cate="${c}">${c}</button>`
+  ).join('');
+  $('cateList').querySelectorAll('.cate-btn').forEach(btn => {
+    btn.onclick = () => {
+      currentCate = btn.dataset.cate;
+      renderCate();
+      renderProducts();
     };
+  });
+}
+
+function renderProducts(){
+  let list = PRODUCTS.slice();
+
+  if(currentCate !== "全部"){
+    list = list.filter(p => p.cate === currentCate);
+  }
+  if(currentKeyword){
+    const kw = currentKeyword.toLowerCase();
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(kw) || (p.sub||"").toLowerCase().includes(kw) || (p.brand||"").toLowerCase().includes(kw)
+    );
+  }
+
+  if(list.length === 0){
+    $('content').innerHTML = '<div class="empty">没有找到相关产品</div>';
+    return;
+  }
+
+  const groups = {};
+  list.forEach(p => {
+    const b = p.brand || "其他";
+    if(!groups[b]) groups[b] = [];
+    groups[b].push(p);
+  });
+
+  let html = '';
+  for(const brand in groups){
+    html += `<div class="brand-title">${brand}</div>`;
+    html += '<div class="product-list">';
+    groups[brand].forEach(p => {
+      html += `<div class="product-card" onclick="openDetail('${escapeAttr(brand)}','${escapeAttr(p.name)}','${escapeAttr(p.sub||"")}')">
+        <div class="product-img"><div class="ph">暂无图片</div></div>
+        <div class="product-info">
+          <div class="p-title">${p.name}</div>
+          <div class="p-sub">${p.sub || "&nbsp;"}</div>
+          <div class="p-price">批发价面议</div>
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+  }
+  $('content').innerHTML = html;
+}
+
+function escapeAttr(s){
+  return String(s).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+function openDetail(brand, name, sub){
+  $('modalMain').innerHTML = '暂无图片';
+  $('modalTitle').textContent = name;
+  $('modalSub').textContent = (brand ? '【' + brand + '】' : '') + (sub ? '  ' + sub : '');
+  $('modalPrice').innerHTML = '批发价面议 <small>实体门店专供</small>';
+  $('modal').classList.add('show');
+}
+function closeModal(){
+  $('modal').classList.remove('show');
+}
+$('modal').addEventListener('click', e => {
+  if(e.target.id === 'modal') closeModal();
 });
 
-window.onscroll = ()=>{
-    if(!loading && !noMore &&
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 300)
-    {
-        loadProduct();
-    }
-};
+$('search').addEventListener('input', e => {
+  currentKeyword = e.target.value.trim();
+  renderProducts();
+});
 
-loadCate();
-loadProduct();
+renderCate();
+renderProducts();
 </script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;9e96a4a935584a89839e016b8a45810c&quot;,&quot;r&quot;:1,&quot;spa&quot;:2}" crossorigin="anonymous"></script>
 
-</body></html>
+</body>
+</html>
