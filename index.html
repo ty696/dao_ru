@@ -1,15 +1,685 @@
-/* ==========================================================
-   品牌文化 —— 微信公众号文章
-   ─────────────────────────────────────────────────────────
-   想加文章：往 ARTICLES 里加一行
-   title 是标题，url 是公众号链接
-   ========================================================== */
-const ARTICLES = [
-  { title:"点击查看 · 第 1 篇品牌文章", url:"https://mp.weixin.qq.com/s/LhbXcISUwr2gnLBlWSEWuQ" },
-  { title:"点击查看 · 第 2 篇品牌文章", url:"https://mp.weixin.qq.com/s/kP3NXyOxbZVGT4HEOFNtgA" },
-  { title:"点击查看 · 第 3 篇品牌文章", url:"https://mp.weixin.qq.com/s/RLPjwGD71hbGtftrAA8kfA" },
-  { title:"点击查看 · 第 4 篇品牌文章", url:"https://mp.weixin.qq.com/s/Z-2pVSKjHp4xShy3bKLf1w" }
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>君子兰美容美发用品批发</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap">
+<style>
+/* ============================================================
+   全局
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",微软雅黑,system-ui,-apple-system}
+:root{
+  --primary:#2c5530;      /* 深绿 - 主色 */
+  --secondary:#8a9a5b;    /* 橄榄绿 - 辅色 */
+  --accent:#d4a96a;       /* 金色 - 点缀 */
+  --bg:#f8f5f0;           /* 米白 - 背景 */
+  --card:#ffffff;         /* 卡片白 */
+  --text:#222222;         /* 主文字 */
+  --text-sub:#6b7280;     /* 次文字 */
+  --text-light:#8a94a6;   /* 浅文字 */
+  --border:#e8e5dc;       /* 边框 */
+}
+body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+
+/* ============================================================
+   头部
+   ============================================================ */
+.header{background:#fff;box-shadow:0 2px 16px rgba(0,0,0,0.05);position:sticky;top:0;z-index:100}
+.header-top{max-width:1100px;margin:0 auto;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo-wrap{cursor:pointer;user-select:none}
+.logo{font-family:'Playfair Display','Noto Serif SC',serif;font-size:1.75rem;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:9px;line-height:1}
+.logo i{color:var(--secondary);font-size:1.45rem}
+.logo span{color:var(--accent);font-weight:400}
+.header-sub{font-size:11.5px;color:var(--secondary);letter-spacing:3px;margin-top:5px}
+.phone-btn{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;text-decoration:none;padding:11px 20px;border-radius:26px;font-size:14px;font-weight:600;box-shadow:0 4px 14px rgba(44,85,48,0.32);white-space:nowrap;display:flex;align-items:center;gap:8px;transition:0.2s}
+.phone-btn:active{transform:scale(0.97)}
+.header-nav{background:var(--primary);text-align:center;font-size:12.5px;color:#d4d9c0;padding:9px 16px;letter-spacing:1.5px}
+.header-nav b{color:var(--accent);font-weight:600}
+
+/* ============================================================
+   主容器
+   ============================================================ */
+.container{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+
+.banner{background:#fff8e1;color:#8a6d00;padding:11px 16px;border-radius:10px;font-size:12.5px;line-height:1.7;text-align:center;margin-bottom:18px;border:1px solid #f5e0a8;letter-spacing:0.5px}
+
+/* ============================================================
+   品牌入口（首页）
+   ============================================================ */
+.brand-entries{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px}
+@media(max-width:600px){.brand-entries{grid-template-columns:1fr}}
+
+.brand-entry{border-radius:20px;padding:28px 24px;cursor:pointer;position:relative;overflow:hidden;color:#fff;transition:0.25s;box-shadow:0 8px 28px rgba(0,0,0,0.12)}
+.brand-entry:active{transform:scale(0.98)}
+.brand-entry.dinian{background:linear-gradient(135deg,#1a3a1f 0%,#2c5530 55%,#3d6b43 100%)}
+.brand-entry.diancaoyuan{background:linear-gradient(135deg,#4e6337 0%,#7a8f4d 55%,#9dad6e 100%)}
+.brand-entry .tag{position:absolute;top:16px;right:16px;background:var(--accent);color:#fff;font-size:11px;padding:4px 11px;border-radius:11px;letter-spacing:1px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.brand-entry h2{font-family:'Playfair Display','Noto Serif SC',serif;font-size:1.7rem;margin-bottom:6px;color:#fff;letter-spacing:3px;font-weight:700}
+.brand-entry .en{font-size:10.5px;letter-spacing:5px;opacity:0.65;margin-bottom:16px;font-family:'Playfair Display',serif}
+.brand-entry .desc{font-size:13px;line-height:1.75;opacity:0.9;margin-bottom:20px;letter-spacing:0.3px}
+.brand-entry .enter{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.18);padding:10px 20px;border-radius:22px;font-size:13px;font-weight:600;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.28);transition:0.25s;letter-spacing:1px}
+.brand-entry:hover .enter{background:rgba(255,255,255,0.3);gap:13px}
+.brand-entry .icon-bg{position:absolute;right:-20px;bottom:-24px;font-size:120px;opacity:0.07;color:#fff;transform:rotate(-8deg)}
+
+/* ============================================================
+   品牌文化入口
+   ============================================================ */
+.culture-entry{background:linear-gradient(135deg,#8b6f3a 0%,#c9a05c 50%,#e0bb7c 100%);color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:20px;cursor:pointer;transition:0.25s;box-shadow:0 8px 24px rgba(212,169,106,0.35);position:relative;overflow:hidden}
+.culture-entry:active{transform:scale(0.99)}
+.culture-entry-inner{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;gap:14px}
+.culture-entry h3{font-family:'Playfair Display','Noto Serif SC',serif;font-size:1.35rem;margin-bottom:6px;letter-spacing:3px;font-weight:700}
+.culture-entry p{font-size:12.5px;opacity:0.92;letter-spacing:1px}
+.culture-entry .arrow{font-size:1.5rem;opacity:0.9}
+.culture-entry .icon-bg{position:absolute;right:-16px;bottom:-24px;font-size:110px;opacity:0.1;color:#fff;transform:rotate(8deg)}
+
+/* ============================================================
+   搜索
+   ============================================================ */
+.search-box{display:flex;gap:10px;margin-bottom:16px}
+.search{flex:1;padding:15px 18px;border:1.5px solid var(--border);border-radius:14px;font-size:15px;outline:none;background:#fff;color:var(--text);transition:0.2s}
+.search:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(44,85,48,0.08)}
+.search::placeholder{color:#b8bcc4}
+
+/* ============================================================
+   分类按钮
+   ============================================================ */
+.cate-list{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
+.cate-btn{padding:9px 16px;background:#fff;border:1.5px solid var(--border);border-radius:22px;font-size:13.5px;white-space:nowrap;cursor:pointer;transition:0.18s;color:var(--primary);font-weight:500}
+.cate-btn:hover{border-color:var(--secondary);color:var(--secondary)}
+.cate-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 4px 12px rgba(44,85,48,0.25)}
+
+/* ============================================================
+   品牌小标题
+   ============================================================ */
+.brand-title{font-size:15px;font-weight:700;color:var(--primary);margin:26px 0 14px;padding-left:12px;border-left:3px solid var(--accent);letter-spacing:2px;font-family:'Playfair Display','Noto Serif SC',serif}
+.brand-title:first-child{margin-top:0}
+
+/* ============================================================
+   商品网格
+   ============================================================ */
+.product-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:640px){.product-list{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:960px){.product-list{grid-template-columns:repeat(4,1fr)}}
+
+.product-card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:0.2s;border:1px solid #f0ede4}
+.product-card:hover{box-shadow:0 10px 28px rgba(44,85,48,0.12);transform:translateY(-3px);border-color:#e0dcd0}
+.product-card:active{transform:scale(0.99)}
+
+.product-img{width:100%;padding-bottom:100%;position:relative;background:#fafaf7;overflow:hidden}
+.product-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#c8cdd6;font-size:12px;flex-direction:column;gap:6px}
+.product-img .ph i{font-size:22px;opacity:0.4}
+.product-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.2s,transform 0.4s}
+.product-card:hover .product-img img{transform:scale(1.04)}
+
+/* 轮播箭头 */
+.nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:28px;background:rgba(0,0,0,0.38);color:#fff;border:none;border-radius:50%;font-size:15px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:3;padding:0;transition:0.15s}
+.nav-btn:hover{background:rgba(0,0,0,0.6)}
+.nav-btn.prev{left:7px}
+.nav-btn.next{right:7px}
+.product-img.multi .nav-btn{display:flex}
+
+/* 小圆点 */
+.dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:none;gap:4px;z-index:3}
+.product-img.multi .dots{display:flex}
+.dots span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.55);transition:0.18s}
+.dots span.on{background:#fff;width:15px;border-radius:3px}
+
+.product-info{padding:13px 14px 15px}
+.p-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:39px}
+.p-sub{font-size:12px;color:var(--text-light);margin-bottom:9px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+.p-price{font-size:15px;color:var(--primary);font-weight:700;letter-spacing:0.5px}
+
+.empty{text-align:center;padding:70px 20px;color:var(--text-light);font-size:15px;grid-column:1/-1}
+.empty i{font-size:42px;opacity:0.3;display:block;margin-bottom:14px}
+
+/* ============================================================
+   品牌页头
+   ============================================================ */
+.brand-page-head{display:none;align-items:center;gap:14px;margin-bottom:22px;padding:18px 22px;border-radius:16px;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.brand-page-head.dinian{background:linear-gradient(135deg,#1a3a1f,#2c5530)}
+.brand-page-head.diancaoyuan{background:linear-gradient(135deg,#4e6337,#7a8f4d)}
+.brand-page-head.culture{background:linear-gradient(135deg,#8b6f3a,#c9a05c)}
+.brand-page-head.show{display:flex}
+.back-btn{background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.32);padding:9px 16px;border-radius:22px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;font-family:inherit;transition:0.2s;letter-spacing:0.5px}
+.back-btn:hover{background:rgba(255,255,255,0.32)}
+.brand-page-head h2{font-family:'Playfair Display','Noto Serif SC',serif;font-size:1.4rem;letter-spacing:3px;font-weight:700}
+.brand-page-head .count{font-size:12.5px;opacity:0.85;margin-left:auto;letter-spacing:1px}
+
+/* ============================================================
+   文章列表（品牌文化）
+   ============================================================ */
+.article-list{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.article-list{grid-template-columns:1fr 1fr}}
+
+.article-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.05);cursor:pointer;transition:0.2s;display:flex;align-items:center;gap:15px;padding:18px;text-decoration:none;color:inherit;border:1px solid #f0ede4}
+.article-card:hover{box-shadow:0 10px 26px rgba(212,169,106,0.22);transform:translateY(-2px);border-color:#e8dcc0}
+.article-icon{flex-shrink:0;width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.article-body{flex:1;min-width:0}
+.article-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.45;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-meta{font-size:12px;color:var(--text-light);display:flex;align-items:center;gap:7px;letter-spacing:0.5px}
+.article-meta i{color:var(--accent);font-size:11px}
+.article-go{flex-shrink:0;color:var(--accent);font-size:1.1rem;opacity:0.6}
+
+/* ============================================================
+   详情弹窗
+   ============================================================ */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:999;padding:16px;backdrop-filter:blur(4px)}
+.modal.show{display:flex}
+.modal-box{width:100%;max-width:540px;max-height:88vh;background:#fff;border-radius:22px;overflow:auto;position:relative;padding:22px}
+.close{position:absolute;right:16px;top:16px;width:40px;height:40px;background:#f3f1ec;color:#666;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;border:none;z-index:5;transition:0.2s}
+.close:hover{background:#e8e5dc}
+.modal-main{width:100%;aspect-ratio:1;background:#fafaf7;border-radius:14px;overflow:hidden;margin-bottom:12px;position:relative;display:flex;align-items:center;justify-content:center;color:var(--text-light);font-size:13px}
+.modal-main img{width:100%;height:100%;object-fit:cover}
+.modal-main .nav-btn{width:36px;height:36px;font-size:19px}
+.thumbs{display:flex;gap:8px;margin-bottom:18px;overflow-x:auto;padding-bottom:5px}
+.thumbs::-webkit-scrollbar{height:4px}
+.thumbs::-webkit-scrollbar-thumb{background:#d0ccc0;border-radius:2px}
+.thumbs img{width:58px;height:58px;object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid transparent;flex-shrink:0;background:#fafaf7;transition:0.15s}
+.thumbs img.on{border-color:var(--primary)}
+.modal-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.4}
+.modal-sub{font-size:14px;color:var(--text-sub);line-height:1.65;margin-bottom:16px}
+.modal-price{font-size:22px;color:var(--primary);font-weight:700;margin-bottom:18px}
+.modal-price small{font-size:13px;color:var(--text-light);font-weight:400;margin-left:8px}
+.contact-box{background:#f0f4ee;border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.9;color:var(--text)}
+.contact-box b{color:var(--primary);font-weight:700}
+
+/* ============================================================
+   全屏放大
+   ============================================================ */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);display:none;align-items:center;justify-content:center;z-index:1000;padding:10px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:100%;max-height:100%;object-fit:contain}
+.lightbox .close{position:fixed;right:22px;top:22px;background:rgba(255,255,255,0.15);color:#fff}
+.lightbox .close:hover{background:rgba(255,255,255,0.28)}
+
+/* ============================================================
+   页脚
+   ============================================================ */
+footer{background:var(--primary);color:#fff;padding:54px 22px 26px;margin-top:50px}
+.footer-content{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-bottom:40px}
+.footer-section h3{color:var(--accent);font-size:1.15rem;font-family:'Playfair Display','Noto Serif SC',serif;margin-bottom:18px;font-weight:700;letter-spacing:1px}
+.footer-section p,.footer-section li{opacity:0.85;margin-bottom:10px;font-size:13px;line-height:1.8}
+.footer-section ul{list-style:none;padding:0}
+.footer-section a{color:#fff;text-decoration:none;transition:0.2s;cursor:pointer}
+.footer-section a:hover{color:var(--accent)}
+.social-icons{display:flex;gap:11px;margin-top:16px}
+.social-icons a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:rgba(255,255,255,0.1);border-radius:50%;transition:0.25s}
+.social-icons a:hover{background:var(--accent);transform:translateY(-4px)}
+.footer-bottom{max-width:1100px;margin:0 auto;text-align:center;padding-top:26px;border-top:1px solid rgba(255,255,255,0.1);opacity:0.72;font-size:12px;line-height:2}
+.footer-bottom b{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     头部
+     ============================================================ -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo-wrap" onclick="goHome()">
+      <div class="logo">
+        <i class="fas fa-leaf"></i>
+        君子兰<span>·</span>美发
+      </div>
+      <div class="header-sub">专业沙龙 · 实体门店专供批发</div>
+    </div>
+    <a class="phone-btn" id="phoneBtn" href="tel:">
+      <i class="fas fa-phone"></i> <span id="phoneText">—</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    全线产品 <b>禁止网络零售</b> · 禁止电商售卖 · 禁止线上倒卖
+  </div>
+</header>
+
+<!-- ============================================================
+     主体
+     ============================================================ -->
+<div class="container">
+
+  <div class="banner">
+    本店为线下实体店专供批发 · 咨询请拨打上方电话
+  </div>
+
+  <!-- ========== 首页视图 ========== -->
+  <div id="homeView">
+
+    <!-- 品牌入口 -->
+    <div class="brand-entries">
+
+      <div class="brand-entry dinian" onclick="enterBrand('帝辇')">
+        <span class="tag">主推</span>
+        <h2>帝辇</h2>
+        <div class="en">DINIAN</div>
+        <div class="desc">氨基酸精华 · 中药防断 · 草本去屑<br>沙龙级头皮护理配方</div>
+        <div class="enter">进入系列单品 <i class="fas fa-arrow-right"></i></div>
+        <i class="fas fa-crown icon-bg"></i>
+      </div>
+
+      <div class="brand-entry diancaoyuan" onclick="enterBrand('滇草源')">
+        <span class="tag">第二主推</span>
+        <h2>滇草源</h2>
+        <div class="en">DIANCAOYUAN</div>
+        <div class="desc">云南高原植萃 · 去屑控油 · 修护滋养<br>自然馈赠的高端洗护</div>
+        <div class="enter">进入系列单品 <i class="fas fa-arrow-right"></i></div>
+        <i class="fas fa-seedling icon-bg"></i>
+      </div>
+
+    </div>
+
+    <!-- 品牌文化入口 -->
+    <div class="culture-entry" onclick="enterCulture()">
+      <div class="culture-entry-inner">
+        <div>
+          <h3>品牌文化</h3>
+          <p>了解品牌故事 · 护理知识 · 新品资讯</p>
+        </div>
+        <i class="fas fa-arrow-right arrow"></i>
+      </div>
+      <i class="fas fa-book-open icon-bg"></i>
+    </div>
+
+    <!-- 搜索 -->
+    <div class="search-box">
+      <input type="text" id="search" class="search" placeholder="🔍 搜索产品名称">
+    </div>
+
+    <!-- 分类 -->
+    <div class="cate-list" id="cateList"></div>
+
+  </div>
+
+  <!-- ========== 品牌页头 ========== -->
+  <div class="brand-page-head" id="brandPageHead">
+    <button class="back-btn" onclick="goHome()">
+      <i class="fas fa-arrow-left"></i> 返回
+    </button>
+    <h2 id="brandPageTitle"></h2>
+    <span class="count" id="brandPageCount"></span>
+  </div>
+
+  <!-- ========== 文化页头 ========== -->
+  <div class="brand-page-head culture" id="culturePageHead">
+    <button class="back-btn" onclick="goHome()">
+      <i class="fas fa-arrow-left"></i> 返回
+    </button>
+    <h2>品牌文化</h2>
+    <span class="count" id="culturePageCount"></span>
+  </div>
+
+  <!-- ========== 内容区 ========== -->
+  <div id="content"></div>
+
+</div>
+
+<!-- ============================================================
+     页脚
+     ============================================================ -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>君子兰美发用品</h3>
+      <p>曲靖市麒麟区君子兰美容美发用品销售部，专注美发用品批发，实体门店专供。</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-weixin"></i></a>
+        <a href="#"><i class="fas fa-phone"></i></a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>热门品牌</h3>
+      <ul>
+        <li><a onclick="enterBrand('帝辇')">帝辇 · 主推</a></li>
+        <li><a onclick="enterBrand('滇草源')">滇草源 · 第二主推</a></li>
+        <li><a onclick="jumpCate('云草舒')">云草舒</a></li>
+        <li><a onclick="jumpCate('面贴')">面贴系列</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>联系我们</h3>
+      <p><i class="fas fa-map-marker-alt"></i> 云南省曲靖市麒麟区</p>
+      <p><i class="fas fa-phone"></i> <span id="footerPhone">—</span></p>
+      <p><i class="fas fa-clock"></i> 周一至周日 9:00 - 20:00</p>
+    </div>
+
+    <div class="footer-section">
+      <h3>郑重声明</h3>
+      <p>全线产品严禁网络上架、电商销售、私域倒卖、线上零售，违者追究侵权责任。</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <b>曲靖市麒麟区君子兰美容美发用品销售部</b><br>
+    © 2026 君子兰美发用品 · 保留所有权利
+  </div>
+</footer>
+
+<!-- ============================================================
+     详情弹窗
+     ============================================================ -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="modal-main" id="modalMain"></div>
+    <div class="thumbs" id="modalThumbs"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-sub" id="modalSub"></div>
+    <div class="modal-price" id="modalPrice"></div>
+    <div class="contact-box">
+      <b>📞 订购方式</b><br>
+      实体门店专供批发 · 请拨打上方电话或到店咨询
+    </div>
+  </div>
+</div>
+
+<!-- 全屏放大 -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<script>
+/* ============================================================
+   电话号码（改这里）
+   ============================================================ */
+const PHONE = "138-0000-0000";
+document.getElementById('phoneText').textContent = PHONE;
+document.getElementById('footerPhone').textContent = PHONE;
+document.getElementById('phoneBtn').href = 'tel:' + PHONE.replace(/[^0-9+]/g, '');
+
+/* ============================================================
+   分类
+   ============================================================ */
+const CATEGORIES = ["全部","帝辇","滇草源","云草舒","洗护","护肤","面贴","染发","烫发","造型","工具","大容量"];
+
+/* ============================================================
+   商品数据
+   · images 图片数组：1张直接显示；多张出现左右箭头
+   · 图片放 upload/ 文件夹，按编号命名（01.jpg 02.jpg...）
+   · 要加价格：加 price:"128"
+   ============================================================ */
+const PRODUCTS = [
+  /* ---------- 帝辇 ---------- */
+  {name:"帝辇氨基酸精华滋润修护洗发水", sub:"700g ｜ 氨基酸基底，修护干枯毛躁", brand:"帝辇", cate:"帝辇", images:["upload/01.jpg"]},
+  {name:"帝辇氨基酸去屑蓬松洗发水", sub:"700g ｜ 温和去屑，发根持久蓬松", brand:"帝辇", cate:"帝辇", images:["upload/02.jpg"]},
+  {name:"帝辇蛋白焕活霜", sub:"700ml ｜ 沙龙蛋白护理，柔顺锁水", brand:"帝辇", cate:"帝辇", images:["upload/03.jpg"]},
+  {name:"帝辇抑菌膏", sub:"30g ｜ 头皮舒缓护理", brand:"帝辇", cate:"帝辇", images:["upload/04.jpg"]},
+  {name:"帝辇中药防断健发洗发液", sub:"500g ｜ 减少断发，强韧发根", brand:"帝辇", cate:"帝辇", images:["upload/05.jpg"]},
+  {name:"帝辇草本去屑止痒洗发液", sub:"500g ｜ 草本舒缓，改善头痒头屑", brand:"帝辇", cate:"帝辇", images:["upload/06.jpg"]},
+  {name:"帝辇草本去屑控油洗发精华乳", sub:"350ml ｜ 含二硫化硒，强效控油去屑", brand:"帝辇", cate:"帝辇", images:["upload/07.jpg"]},
+  {name:"帝辇灵润飘逸护发精油", sub:"60ml ｜ 免洗配方，抚平毛躁", brand:"帝辇", cate:"帝辇", images:["upload/08.jpg"]},
+  {name:"帝辇氨基酸隐形发膜（弹力素）", sub:"300ml ｜ 卷发保湿，隐形质感不厚重", brand:"帝辇", cate:"帝辇", images:["upload/09.jpg"]},
+  {name:"帝辇水润护卷弹力素", sub:"300ml ｜ 持久护卷，造型不僵硬", brand:"帝辇", cate:"帝辇", images:["upload/10.jpg"]},
+  {name:"帝辇保湿定型啫喱膏", sub:"300ml ｜ 保湿定型，干爽不发白", brand:"帝辇", cate:"帝辇", images:["upload/11.jpg"]},
+  {name:"帝辇香氛蓬松洗发乳", sub:"4.2L ｜ 发廊大桶装，香氛蓬松", brand:"帝辇", cate:"帝辇", images:["upload/12.jpg"]},
+  {name:"帝辇香氛柔滑护发素", sub:"4.2L ｜ 发廊大桶护发，顺滑易梳", brand:"帝辇", cate:"帝辇", images:["upload/13.jpg"]},
+  {name:"帝辇绿点黑油", sub:"发廊专业染黑", brand:"帝辇", cate:"帝辇", images:["upload/14.jpg"]},
+  {name:"帝辇皂基奢舒沐浴乳", sub:"香氛沐浴，清洁清爽", brand:"帝辇", cate:"帝辇", images:["upload/15.jpg"]},
+  {name:"帝辇绿瓶香氛沐浴露", sub:"", brand:"帝辇", cate:"帝辇", images:["upload/16.jpg"]},
+
+  /* ---------- 滇草源 ---------- */
+  {name:"滇草源植萃精华柔顺修护洗发乳", sub:"750ml ｜ 植萃配方，修护烫染受损", brand:"滇草源", cate:"滇草源", images:["upload/17.jpg"]},
+  {name:"滇草源植萃精华去屑控油洗发水", sub:"750ml ｜ 植萃净屑，平衡头皮油脂", brand:"滇草源", cate:"滇草源", images:["upload/18.jpg"]},
+  {name:"滇草源植萃焕活果酸修复霜", sub:"700ml ｜ 果酸修护，改善干枯稻草发", brand:"滇草源", cate:"滇草源", images:["upload/19.jpg"]},
+  {name:"滇草源去屑净油止痒洗发乳", sub:"300ml ｜ 含二硫化硒，针对顽固头屑头痒", brand:"滇草源", cate:"滇草源", images:["upload/20.jpg"]},
+  {name:"滇草源植萃蛋白柔顺霜（发膜）", sub:"650ml ｜ 深层蛋白滋养，柔顺亮泽", brand:"滇草源", cate:"滇草源", images:["upload/21.jpg"]},
+  {name:"滇草源植萃香氛护发精油（经典款）", sub:"60ml ｜ 免洗护发，留香持久", brand:"滇草源", cate:"滇草源", images:["upload/22.jpg"]},
+  {name:"滇草源植萃香氛护发精油（黄包装款）", sub:"60ml ｜ 轻薄不油，修护分叉", brand:"滇草源", cate:"滇草源", images:["upload/23.jpg"]},
+
+  /* ---------- 云草舒 ---------- */
+  {name:"云草舒植萃舒缓洗发露", sub:"750ml ｜ 植萃舒缓，温和洁净", brand:"云草舒", cate:"云草舒", images:["upload/90.jpg"]},
+  {name:"云草舒草本控油洗发乳", sub:"750ml ｜ 草本控油，蓬松清爽", brand:"云草舒", cate:"云草舒", images:["upload/91.jpg"]},
+  {name:"云草舒柔顺修护发膜", sub:"650ml ｜ 深层修护，柔顺亮泽", brand:"云草舒", cate:"云草舒", images:["upload/92.jpg"]},
+  {name:"云草舒去屑止痒洗发水", sub:"500ml ｜ 去屑止痒，舒缓头皮", brand:"云草舒", cate:"云草舒", images:["upload/93.jpg"]},
+  {name:"云草舒护发精油", sub:"60ml ｜ 免洗护发，修护分叉", brand:"云草舒", cate:"云草舒", images:["upload/94.jpg"]},
+
+  /* ---------- 洗护 ---------- */
+  {name:"忠哗会净澈去屑控油洗发乳", sub:"720g ｜ 净澈头皮，长效控油去屑", brand:"忠哗会", cate:"洗护", images:["upload/24.jpg"]},
+  {name:"忠哗会焕活润养修护洗发乳", sub:"720g ｜ 润养修护，改善烫染损伤", brand:"忠哗会", cate:"洗护", images:["upload/25.jpg"]},
+  {name:"忠哗会奢润柔顺果酸角蛋白1号", sub:"720g ｜ 角蛋白填充，抚平毛躁", brand:"忠哗会", cate:"洗护", images:["upload/26.jpg"]},
+  {name:"魅丽源溯去屑控油洗发乳", sub:"700g ｜ 清爽控油，祛除头屑", brand:"魅丽源溯", cate:"洗护", images:["upload/27.jpg"]},
+  {name:"魅丽源溯柔滑修护洗发乳", sub:"700g ｜ 修护干枯，发丝顺滑", brand:"魅丽源溯", cate:"洗护", images:["upload/28.jpg"]},
+  {name:"魅丽源溯鱼子酱蛋白复活霜", sub:"鱼子酱营养，急救受损发质", brand:"魅丽源溯", cate:"洗护", images:["upload/29.jpg"]},
+  {name:"魅丽源溯特硬干胶", sub:"360ml ｜ 强力定型，持久蓬松", brand:"魅丽源溯", cate:"洗护", images:["upload/30.jpg"]},
+  {name:"魅丽源溯轻漾鱼感泡沫发蜡", sub:"380ml ｜ 弹力塑卷，轻盈不厚重", brand:"魅丽源溯", cate:"洗护", images:["upload/31.jpg"]},
+  {name:"金曼丽发芯小分子蛋白乳", sub:"小分子蛋白，渗透发芯修护", brand:"金曼丽", cate:"洗护", images:["upload/32.jpg"]},
+  {name:"金曼丽植萃去屑洗发乳", sub:"720g ｜ 植萃温和，舒缓去屑", brand:"金曼丽", cate:"洗护", images:["upload/33.jpg"]},
+  {name:"欣洋娜水润修护洗发水", sub:"700ml ｜ 水润滋养，改善干枯毛躁", brand:"欣洋娜", cate:"洗护", images:["upload/34.jpg"]},
+  {name:"欣洋娜控油蓬松洗发水", sub:"清爽控油，发根立体蓬松", brand:"欣洋娜", cate:"洗护", images:["upload/35.jpg"]},
+  {name:"欣洋娜奢润蛋白护理", sub:"700ml ｜ 蛋白深层护理，提升发丝光泽", brand:"欣洋娜", cate:"洗护", images:["upload/36.jpg"]},
+  {name:"妍美汐蓬松润泽酸性洗发水", sub:"700ml ｜ 酸性配方，闭合毛鳞片，蓬松顺滑", brand:"妍美汐", cate:"洗护", images:["upload/37.jpg"]},
+  {name:"裕萱水光丝滑精华霜", sub:"750g ｜ 水光质感，发丝丝滑", brand:"裕萱", cate:"洗护", images:["upload/38.jpg"]},
+  {name:"裕萱水润丝质顺滑洗发露", sub:"750g ｜ 长效顺滑，易梳理", brand:"裕萱", cate:"洗护", images:["upload/39.jpg"]},
+  {name:"裕萱无味黑油", sub:"无味黑油，发廊专用", brand:"裕萱", cate:"洗护", images:["upload/40.jpg"]},
+  {name:"迪洛斯去屑精华乳", sub:"300ml ｜ 头皮去屑精华，改善顽固头屑", brand:"迪洛斯", cate:"洗护", images:["upload/41.jpg"]},
+  {name:"迪洛斯去屑精华乳", sub:"130ml ｜ 便携小瓶装，头皮护理", brand:"迪洛斯", cate:"洗护", images:["upload/42.jpg"]},
+  {name:"荣威控油防脱洗发露", sub:"450ml ｜ 控油，稳固发根", brand:"其他", cate:"洗护", images:["upload/43.jpg"]},
+  {name:"澳尚免洗液态护理精华乳（修复液）", sub:"260ml ｜ 免洗修护，抚平毛躁", brand:"其他", cate:"洗护", images:["upload/44.jpg"]},
+  {name:"罗威丝发感喷雾精华素", sub:"220ml ｜ 喷雾型护发，即时顺滑", brand:"其他", cate:"洗护", images:["upload/45.jpg"]},
+  {name:"发炫多效去屑洗发乳", sub:"500g ｜ 多效去屑，清爽头皮", brand:"其他", cate:"洗护", images:["upload/46.jpg"]},
+
+  /* ---------- 护肤 ---------- */
+  {name:"新靓琪致妍保湿玫瑰露", sub:"120ml × 2", brand:"新靓琪", cate:"护肤", images:["upload/47.jpg"]},
+  {name:"新靓琪多肽倍润眼霜", sub:"20g", brand:"新靓琪", cate:"护肤", images:["upload/48.jpg"]},
+  {name:"新靓琪致妍赋采精华乳", sub:"100ml", brand:"新靓琪", cate:"护肤", images:["upload/49.jpg"]},
+  {name:"新靓琪水漾清润柔肤水", sub:"120ml", brand:"新靓琪", cate:"护肤", images:["upload/50.jpg"]},
+  {name:"新靓琪水漾清润补水霜", sub:"50g", brand:"新靓琪", cate:"护肤", images:["upload/51.jpg"]},
+  {name:"新靓琪水漾清润锁水乳", sub:"100ml", brand:"新靓琪", cate:"护肤", images:["upload/52.jpg"]},
+  {name:"新靓琪水漾补水洁面霜", sub:"120g", brand:"新靓琪", cate:"护肤", images:["upload/53.jpg"]},
+  {name:"新靓琪臻颜净透洁面泡沫", sub:"120ml", brand:"新靓琪", cate:"护肤", images:["upload/54.jpg"]},
+
+  /* ---------- 面贴 ---------- */
+  {name:"云草舒植萃补水面贴", sub:"25ml × 5片 ｜ 植萃补水，舒缓修护", brand:"云草舒面贴", cate:"面贴", images:["upload/95.jpg"]},
+  {name:"云草舒草本舒缓面贴", sub:"25ml × 5片 ｜ 草本舒缓，镇静肌肤", brand:"云草舒面贴", cate:"面贴", images:["upload/96.jpg"]},
+  {name:"云草舒亮肤焕颜面贴", sub:"25ml × 5片 ｜ 提亮肤色，焕活美肌", brand:"云草舒面贴", cate:"面贴", images:["upload/97.jpg"]},
+
+  /* ---------- 染发 ---------- */
+  {name:"恩必思色膏", sub:"", brand:"色膏系列", cate:"染发", images:["upload/55.jpg"]},
+  {name:"领秀色膏", sub:"", brand:"色膏系列", cate:"染发", images:["upload/56.jpg"]},
+  {name:"美雅色膏", sub:"", brand:"色膏系列", cate:"染发", images:["upload/57.jpg"]},
+  {name:"凡高黑油", sub:"", brand:"黑油系列", cate:"染发", images:["upload/58.jpg"]},
+  {name:"立典黑油", sub:"", brand:"黑油系列", cate:"染发", images:["upload/59.jpg"]},
+  {name:"HG黑油", sub:"", brand:"黑油系列", cate:"染发", images:["upload/60.jpg"]},
+  {name:"朵妍琦黑油", sub:"", brand:"黑油系列", cate:"染发", images:["upload/61.jpg"]},
+  {name:"佳桐黑油", sub:"", brand:"黑油系列", cate:"染发", images:["upload/62.jpg"]},
+  {name:"孜然炫彩黑油", sub:"", brand:"黑油系列", cate:"染发", images:["upload/63.jpg"]},
+
+  /* ---------- 烫发 ---------- */
+  {name:"章华百草韵味冷烫液（正常发质）", sub:"120ml × 2", brand:"章华", cate:"烫发", images:["upload/64.jpg"]},
+  {name:"章华百草韵味冷烫液（受损发质）", sub:"120ml × 2", brand:"章华", cate:"烫发", images:["upload/65.jpg"]},
+  {name:"章华百草韵味曲直烫发霜", sub:"550ml × 2", brand:"章华", cate:"烫发", images:["upload/66.jpg"]},
+  {name:"章华百草韵味素卷烫发乳", sub:"550ml × 2", brand:"章华", cate:"烫发", images:["upload/67.jpg"]},
+  {name:"两方面曲直香氛烫发乳（卷发专用）", sub:"900ml × 2", brand:"两方面", cate:"烫发", images:["upload/68.jpg"]},
+  {name:"两方面曲直香氛烫发乳（直发专用）", sub:"900ml × 2", brand:"两方面", cate:"烫发", images:["upload/69.jpg"]},
+  {name:"两方面美感弹力烫发液（高技）", sub:"120ml × 2", brand:"两方面", cate:"烫发", images:["upload/70.jpg"]},
+  {name:"两方面美感弹力烫发液（水剂）", sub:"120ml × 2", brand:"两方面", cate:"烫发", images:["upload/71.jpg"]},
+  {name:"两方面美感潮流冷烫液", sub:"120ml × 2", brand:"两方面", cate:"烫发", images:["upload/72.jpg"]},
+
+  /* ---------- 造型 ---------- */
+  {name:"水慕柔劲酷特硬喷雾干胶", sub:"450ml ｜ 强力定型，持久造型", brand:"水慕柔", cate:"造型", images:["upload/73.jpg"]},
+  {name:"水慕柔精油造型乳", sub:"300ml ｜ 造型护发二合一", brand:"水慕柔", cate:"造型", images:["upload/74.jpg"]},
+
+  /* ---------- 工具 ---------- */
+  {name:"丽维尔专业油头理发器（油推）", sub:"", brand:"美发电器", cate:"工具", images:["upload/75.jpg"]},
+  {name:"圣爵士锂电池电推剪", sub:"", brand:"美发电器", cate:"工具", images:["upload/76.jpg"]},
+  {name:"无刷高速电吹风（戴森款）", sub:"", brand:"美发电器", cate:"工具", images:["upload/77.jpg"]},
+
+  /* ---------- 大容量 ---------- */
+  {name:"护手宝舒柔型洗发水", sub:"4L", brand:"大容量洗护", cate:"大容量", images:["upload/78.jpg"]},
+  {name:"奢香稻草发护理1号护发发膜", sub:"1L", brand:"大容量洗护", cate:"大容量", images:["upload/79.jpg"]},
+  {name:"奢香水润柔顺洗发露", sub:"1L", brand:"大容量洗护", cate:"大容量", images:["upload/80.jpg"]},
+  {name:"奢香去屑爽洁洗发露", sub:"1L", brand:"大容量洗护", cate:"大容量", images:["upload/81.jpg"]},
+  {name:"圆块烫发液", sub:"1L × 2", brand:"大容量洗护", cate:"大容量", images:["upload/82.jpg"]},
+  {name:"潮范立体塑形发蜡", sub:"100ml", brand:"大容量洗护", cate:"大容量", images:["upload/83.jpg"]},
+  {name:"潮范立体塑形发泥", sub:"100ml", brand:"大容量洗护", cate:"大容量", images:["upload/84.jpg"]}
 ];
+
+/* ============================================================
+   公众号文章（品牌文化）
+   加新文章：复制一行，改标题和链接
+   ============================================================ */
+const ARTICLES = [
+  { title:"点击查看 · 品牌文章 1", url:"https://mp.weixin.qq.com/s/LhbXcISUwr2gnLBlWSEWuQ" },
+  { title:"点击查看 · 品牌文章 2", url:"https://mp.weixin.qq.com/s/kP3NXyOxbZVGT4HEOFNtgA" },
+  { title:"点击查看 · 品牌文章 3", url:"https://mp.weixin.qq.com/s/RLPjwGD71hbGtftrAA8kfA" },
+  { title:"点击查看 · 品牌文章 4", url:"https://mp.weixin.qq.com/s/Z-2pVSKjHp4xShy3bKLf1w" }
+];
+
+/* ============================================================
+   状态
+   ============================================================ */
+let currentCate = "全部";
+let currentKeyword = "";
+let viewingBrand = null;
+const $ = id => document.getElementById(id);
+
+/* ============================================================
+   渲染：分类按钮
+   ============================================================ */
+function renderCate(){
+  $('cateList').innerHTML = CATEGORIES.map(c =>
+    `<button class="cate-btn ${c === currentCate ? 'active' : ''}" data-cate="${c}">${c}</button>`
+  ).join('');
+  $('cateList').querySelectorAll('.cate-btn').forEach(btn => {
+    btn.onclick = () => {
+      currentCate = btn.dataset.cate;
+      renderCate();
+      renderProducts();
+    };
+  });
+}
+
+/* ============================================================
+   渲染：单张商品卡片
+   ============================================================ */
+function cardHTML(p){
+  const imgs = p.images || [];
+  const multi = imgs.length > 1;
+  let imgInner = '';
+
+  if(imgs.length === 0){
+    imgInner = `<div class="ph"><i class="fas fa-image"></i>暂无图片</div>`;
+  } else {
+    imgInner = `<img src="${imgs[0]}" alt="${p.name}" loading="lazy"
+                 onerror="this.style.display='none';this.parentNode.innerHTML='<div class=ph><i class=fas--image></i>图片加载失败</div>'">`;
+    if(multi){
+      imgInner += `
+        <button class="nav-btn prev" onclick="event.stopPropagation();cardNav(this,-1)">‹</button>
+        <button class="nav-btn next" onclick="event.stopPropagation();cardNav(this,1)">›</button>
+        <div class="dots">${imgs.map((_,i)=>`<span class="${i===0?'on':''}"></span>`).join('')}</div>`;
+    }
+  }
+
+  const priceText = p.price ? '¥' + p.price : '批发价面议';
+
+  return `<div class="product-card" data-imgs='${JSON.stringify(imgs).replace(/'/g,"&#39;")}'
+              data-idx="0" data-brand="${escapeAttr(p.brand||'')}"
+              data-name="${escapeAttr(p.name)}" data-sub="${escapeAttr(p.sub||'')}"
+              data-price="${escapeAttr(p.price||'')}"
+              onclick="openDetail(this)">
+    <div class="product-img ${multi?'multi':''}">${imgInner}</div>
+    <div class="product-info">
+      <div class="p-title">${p.name}</div>
+      <div class="p-sub">${p.sub || '&nbsp;'}</div>
+      <div class="p-price">${priceText}</div>
+    </div>
+  </div>`;
+}
+
+/* 卡片上的轮播切换 */
+function cardNav(btn, dir){
+  const card = btn.closest('.product-card');
+  const imgBox = card.querySelector('.product-img');
+  const imgs = JSON.parse(card.dataset.imgs || '[]');
+  if(imgs.length < 2) return;
+  let i = (parseInt(card.dataset.idx||'0') + dir + imgs.length) % imgs.length;
+  card.dataset.idx = i;
+  const img = imgBox.querySelector('img');
+  if(img) img.src = imgs[i];
+  imgBox.querySelectorAll('.dots span').forEach((d,k)=>d.classList.toggle('on', k===i));
+}
+
+/* ============================================================
+   渲染：商品列表
+   ============================================================ */
+function renderProducts(){
+  let list = PRODUCTS.slice();
+
+  if(viewingBrand){
+    list = list.filter(p => p.brand === viewingBrand);
+  } else {
+    if(currentCate !== "全部") list = list.filter(p => p.cate === currentCate);
+  }
+
+  if(currentKeyword){
+    const kw = currentKeyword.toLowerCase();
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(kw) ||
+      (p.sub||"").toLowerCase().includes(kw) ||
+      (p.brand||"").toLowerCase().includes(kw)
+    );
+  }
+
+  if(list.length === 0){
+    $('content').innerHTML = '<div class="empty"><i class="fas fa-search"></i>没有找到相关产品</div>';
+    return;
+  }
+
+  /* 品牌视图：平铺 */
+  if(viewingBrand){
+    $('content').innerHTML = '<div class="product-list">' + list.map(cardHTML).join('') + '</div>';
+    return;
+  }
+
+  /* 首页视图：按品牌分组 */
+  const groups = {};
+  list.forEach(p => {
+    const b = p.brand || "其他";
+    if(!groups[b]) groups[b] = [];
+    groups[b].push(p);
+  });
+
+  let html = '';
+  for(const brand in groups){
+    html += `<div class="brand-title">${brand}</div>`;
+    html += '<div class="product-list">';
+    groups[brand].forEach(p => { html += cardHTML(p); });
+    html += '</div>';
+  }
+  $('content').innerHTML = html;
+}
+
+function escapeAttr(s){
+  return String(s).replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;');
+}
+
+/* ============================================================
+   品牌入口 / 文化入口 / 返回首页
+   ============================================================ */
+function enterBrand(brand){
+  viewingBrand = brand;
+  currentKeyword = "";
+  $('search').value = "";
+
+  $('homeView').style.display = 'none';
+  $('culturePageHead').className = 'brand-page-head culture';
+
+  const head = $('brandPageHead');
+  head.className = 'brand-page-head show ' + (brand === '帝辇' ? 'dinian' : 'diancaoyuan');
+  $('brandPageTitle').textContent = brand;
+
+  const count = PRODUCTS.filter(p => p.brand === brand).length;
+  $('brandPageCount').textContent = '共 ' + count + ' 款单品';
+
+  renderProducts();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
 
 function enterCulture(){
   viewingBrand = null;
@@ -34,3 +704,114 @@ function enterCulture(){
 
   window.scrollTo({top:0, behavior:'smooth'});
 }
+
+function goHome(){
+  viewingBrand = null;
+  currentCate = "全部";
+  currentKeyword = "";
+  $('search').value = "";
+
+  $('homeView').style.display = '';
+  $('brandPageHead').className = 'brand-page-head';
+  $('culturePageHead').className = 'brand-page-head culture';
+
+  renderCate();
+  renderProducts();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function jumpCate(name){
+  viewingBrand = null;
+  $('homeView').style.display = '';
+  $('brandPageHead').className = 'brand-page-head';
+  $('culturePageHead').className = 'brand-page-head culture';
+  currentCate = name;
+  currentKeyword = "";
+  $('search').value = "";
+  renderCate();
+  renderProducts();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* ============================================================
+   详情弹窗
+   ============================================================ */
+let modalImgs = [];
+let modalIdx = 0;
+
+function openDetail(card){
+  const imgs = JSON.parse(card.dataset.imgs || '[]');
+  modalImgs = imgs;
+  modalIdx = parseInt(card.dataset.idx||'0') % Math.max(1, imgs.length);
+
+  $('modalTitle').textContent = card.dataset.name;
+  $('modalSub').textContent = (card.dataset.brand ? '【' + card.dataset.brand + '】' : '') +
+                              (card.dataset.sub ? '  ' + card.dataset.sub : '');
+  $('modalPrice').innerHTML = (card.dataset.price ? '¥' + card.dataset.price : '批发价面议') +
+                              ' <small>实体门店专供</small>';
+
+  renderModal();
+  $('modal').classList.add('show');
+}
+
+function renderModal(){
+  const main = $('modalMain'), thumbs = $('modalThumbs');
+
+  if(modalImgs.length === 0){
+    main.innerHTML = '<i class="fas fa-image" style="font-size:32px;opacity:0.3"></i>';
+    thumbs.innerHTML = '';
+    return;
+  }
+
+  main.innerHTML = `<img src="${modalImgs[modalIdx]}" onclick="openLightbox()">
+    ${modalImgs.length > 1 ? `
+      <button class="nav-btn prev" onclick="modalPrev()">‹</button>
+      <button class="nav-btn next" onclick="modalNext()">›</button>
+    ` : ''}`;
+
+  if(modalImgs.length > 1){
+    thumbs.innerHTML = modalImgs.map((u,i)=>
+      `<img src="${u}" class="${i===modalIdx?'on':''}" onclick="modalIdx=${i};renderModal()">`
+    ).join('');
+  } else thumbs.innerHTML = '';
+}
+
+function modalPrev(){ modalIdx = (modalIdx - 1 + modalImgs.length) % modalImgs.length; renderModal(); }
+function modalNext(){ modalIdx = (modalIdx + 1) % modalImgs.length; renderModal(); }
+function closeModal(){ $('modal').classList.remove('show'); }
+$('modal').addEventListener('click', e => { if(e.target.id === 'modal') closeModal(); });
+
+/* 全屏放大 */
+function openLightbox(){
+  if(modalImgs.length === 0) return;
+  $('lightboxImg').src = modalImgs[modalIdx];
+  $('lightbox').classList.add('show');
+}
+function closeLightbox(){ $('lightbox').classList.remove('show'); }
+
+/* 键盘操作 */
+document.addEventListener('keydown', e => {
+  if($('lightbox').classList.contains('show')){
+    if(e.key === 'Escape') closeLightbox();
+    return;
+  }
+  if(!$('modal').classList.contains('show')) return;
+  if(e.key === 'Escape') closeModal();
+  if(modalImgs.length < 2) return;
+  if(e.key === 'ArrowLeft') modalPrev();
+  if(e.key === 'ArrowRight') modalNext();
+});
+
+/* 搜索 */
+$('search').addEventListener('input', e => {
+  currentKeyword = e.target.value.trim();
+  renderProducts();
+});
+
+/* 初始化 */
+renderCate();
+renderProducts();
+</script>
+
+</body>
+</html>
